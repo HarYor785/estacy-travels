@@ -8,26 +8,111 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #f9f1f9;
+}
+
+.container{
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .swiper-image {
+    @apply transition-opacity duration-1000 ease-in-out;
+  }
+
+  .swiper-slide-active .swiper-image {
+    @apply opacity-100;
+  }
+
+  .swiper-slide-next .swiper-image,
+  .swiper-slide-prev .swiper-image {
+    @apply opacity-0;
+  }
+
+  .content {
+    @apply transition-transform duration-1000 ease-in-out;
+  }
+
+  .swiper-slide-active .content {
+    @apply translate-x-0;
+  }
+
+  .swiper-slide-next .content,
+  .swiper-slide-prev .content {
+    @apply translate-x-full;
+  }
+
+  .swiper-button-prev, 
+  .swiper-button-next,
+  .swiper-pagination-bullet{
+    @apply shadow-shadow-dark
+  }
+
+}
+
+.swiper{
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+.swiper-button-prev, .swiper-button-next{
+  color: #5c0059 !important;
+  background-color: white !important;
+  border-radius: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+  font-size: 1rem !important;
+}
+
+.swiper-pagination-bullet{
+  background-color: #5c0059 !important;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 998px) {
+  .navbar{
+    padding: 0.5rem 2rem !important;
+  }
+  .chat-btn{
+    display: none !important;
+  }
+  .about-container{
+    flex-direction: column !important;
+  }
+
+  .viewport{
+    flex-direction: column !important;
+  }
+
+  .birth-services{
+    flex-direction: column-reverse !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-item{
+    justify-content: space-between !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container{
+    max-width: 100%;
   }
 }
