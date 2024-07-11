@@ -14,7 +14,7 @@ import { FaInstagramSquare } from "react-icons/fa"
 const Footer = () => {
   return (
     <footer className='w-full bg-secondary flex flex-col'>
-        <div className='w-full p-10 mx-auto'>
+        <div className='w-full md:p-10 p-4 mx-auto'>
             {/* FOOTER MAIN CONTENT */}
             <div className='w-full grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 
             xl:grid-cols-4'>

@@ -91,19 +91,19 @@ export default async function Home() {
         <div className="about-container w-full flex items-center justify-between 
         md:p-2 gap-5 md:flex-row flex-col">
           {/* LEFT ITEM */}
-          <div className="w-full relative flex">
+          <div className="w-full relative flex md:px-0 pr-3">
             <Image src={aboutImg1} alt="About Estacy Image1"
-            className="w-full h-[600px] object-cover rounded-[50px] md:ml-[100px]
-            ml-[50px]"/>
-            <div className="w-[200px] h-[250px] absolute top-0 left-0 
-            bg-primary md:p-[40px] p-[30px] rounded-[80px]">
-              <Image src={aboutImg2} alt="About Estacy Image2"
+            className="w-full md:h-[600px] h-[400px] object-cover rounded-[50px] md:ml-[100px]
+            ml-0"/>
+            <div className="md:w-[200px] md:h-[250px] w-[100px] h-[150px] absolute top-0 left-0 
+            bg-primary md:p-[40px] p-[10px] md:rounded-[80px] rounded-[40px]">
+              <Image src={aboutImg2} alt="About Estacy Travels"
               className="w-full h-full rounded-[80px]"/>
             </div>
-            <div className="w-[270px] h-fit rounded-3xl flex items-center gap-2
+            <div className="md:w-[270px] w-[220px] h-fit rounded-3xl flex items-center gap-2
             absolute bottom-10 left-0 shadow-shadow-dark bg-primary p-3">
-              <Image src={aboutImg3} className="w-[80px] h-[80px]"/>
-              <h3 className="text-sm text-black font-bold">
+              <Image src={aboutImg3} className="md:w-[80px] w-[50px] md:h-[80px] h-[50px]"/>
+              <h3 className="md:text-sm text-xs text-black font-bold">
                 We have more than 10 years experience
               </h3>
             </div>
@@ -174,7 +174,7 @@ export default async function Home() {
       {/* HOTELS */}
       {
         hotelsPost?.length > 0 &&
-        <AnimatedSection className="mt-28 mb-12 px-4 w-full 
+        <AnimatedSection className="mt-28 px-4 w-full 
         min-h-screen bg-hotel-bg bg-cover bg-no-repeat">
           <div className="container w-full flex flex-col items-center gap-7 p-4">
             {/* TITLE */}
@@ -195,7 +195,7 @@ export default async function Home() {
       }
 
       {/* DESTINATIONS */}
-      <AnimatedSection className="container mt-28 mb-12 md:mx-auto mx-4 w-full 
+      <AnimatedSection className="container mt-28 w-full 
       flex items-center justify-center">
         <div className="w-full flex items-center md:justify-between md:flex-row 
         flex-col md:gap-2 gap-6 overflow-hidden md:px-3 px-8 md:py-2 py-5">
@@ -227,7 +227,7 @@ export default async function Home() {
       </AnimatedSection>
 
       {/* BIRTH SERVICES SECTION */}
-      <AnimatedSection className="mt-28 mb-12 px-4 w-full 
+      <AnimatedSection className="mt-28 px-4 w-full 
       min-h-screen bg-birth-bg bg-cover bg-no-repeat">
         <div className="container w-full flex flex-col items-center gap-16 p-5">
           <div className='flex flex-col items-center gap-2'>
@@ -271,7 +271,7 @@ export default async function Home() {
       </AnimatedSection>
 
       {/* GALLERY */}
-      <AnimatedSection className="mt-28 mb-12 px-4 w-full 
+      <AnimatedSection className="mt-28 px-4 w-full 
        p-6 flex flex-col items-center gap-8">
         <h1 className="text-2xl text-secondary font-bold font-roboto uppercase">
           Our Gallery
@@ -280,7 +280,7 @@ export default async function Home() {
       </AnimatedSection>
 
       {/* BLOG */}
-      <AnimatedSection className="mt-28 mb-12 px-4 w-full 
+      <AnimatedSection className="mt-28 px-4 w-full 
        p-6 flex flex-col items-center gap-8">
         <div className='flex flex-col items-center gap-2'>
             <h2 className="md:text-2xl text-lg text-secondary 
@@ -301,7 +301,7 @@ export default async function Home() {
       </AnimatedSection>
 
       {/* TESTIMONIALS */}
-      <AnimatedSection className="container mt-28 mb-12 px-4 w-full 
+      <AnimatedSection className="container mt-28 px-4 w-full 
        p-6 flex flex-col items-center gap-8 min-h-[80vh]">
         <div className='flex flex-col items-center gap-2'>
             <h2 className="md:text-2xl text-lg text-secondary 

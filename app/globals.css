@@ -59,7 +59,7 @@ body {
 
 }
 
-.swiper{
+.swiper:not(.hero.home){
   padding-top: 4rem !important;
   padding-bottom: 4rem !important;
 }

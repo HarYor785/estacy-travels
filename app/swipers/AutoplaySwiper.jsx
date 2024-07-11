@@ -28,7 +28,7 @@ const AutoplaySwiper = () => {
     loop={true}
     effect="fade"
     fadeEffect={{ crossFade: true }}
-    className='hero w-full h-[90vh]'
+    className='hero home w-full h-[90vh]'
     style={{paddingTop: '0 !important', paddingBottom: '0 !important'}}
     >
         <SwiperSlide className='w-full relative h-full'>
