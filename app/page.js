@@ -280,7 +280,7 @@ export default async function Home() {
       </AnimatedSection>
 
       {/* BLOG */}
-      <AnimatedSection className="mt-28 px-4 w-full 
+      <AnimatedSection className="mt-8 px-4 w-full 
        p-6 flex flex-col items-center gap-8">
         <div className='flex flex-col items-center gap-2'>
             <h2 className="md:text-2xl text-lg text-secondary 

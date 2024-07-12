@@ -79,7 +79,7 @@ const HotelForm = () => {
             <div className='w-full flex flex-col relative md:gap-1 gap-0 items-start'>
                 <label className='md:text-sm text-xs text-black'>Check-in-date</label>
                 <input type="date" 
-                className='w-full p-2 text-sm outline-none border-[1px] border-gray-300 
+                className='md:w-full min-w-full p-2 text-sm outline-none border-[1px] border-gray-300 
                 rounded-sm'
                 {...register('checkInDate',{
                     required: 'Enter depart date!'
@@ -91,7 +91,7 @@ const HotelForm = () => {
             <div className='w-full flex flex-col relative md:gap-1 gap-0 items-start'>
                 <label className='md:text-sm text-xs text-black'>Check-out-date</label>
                 <input type="date" 
-                className='w-full p-2 text-sm outline-none border-[1px] border-gray-300 
+                className='md:w-full min-w-full p-2 text-sm outline-none border-[1px] border-gray-300 
                 rounded-sm'
                 {...register('checkOutDate',{
                     required: 'Enter depart date!'

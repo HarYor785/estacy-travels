@@ -218,7 +218,7 @@ const AirportForm = () => {
                 <label className='md:text-sm text-xs text-black'>Date</label>
                 <input type="date" name="date"
                 {...register('date',{required: 'Choose a date'})}
-                className='w-full p-2 text-sm outline-none border-[1px] border-gray-300 
+                className='md:w-full min-w-full p-2 text-sm outline-none border-[1px] border-gray-300 
                 rounded-sm'/>
                 {errors.date && <span className="text-xs text-red-500">
                   {errors?.date?.message}  
@@ -228,7 +228,7 @@ const AirportForm = () => {
                 <label className='md:text-sm text-xs text-black'>Time</label>
                 <input type="time" name="time"
                 {...register('time',{required: 'Choose a time'})}
-                className='w-full p-2 text-sm outline-none border-[1px] border-gray-300 
+                className='md:w-full min-w-full p-2 text-sm outline-none border-[1px] border-gray-300 
                 rounded-sm'/>
                   {errors.time && <span className="text-xs text-red-500">
                   {errors?.time?.message}  

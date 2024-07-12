@@ -1,6 +1,14 @@
 import Container from 'app/componets/Container'
 import React from 'react'
 
+export const metadata = {
+    title: "Terms and Conditions - Estacy Travels",
+    description: "Review the terms and conditions for using Estacy Travels' services. Understand the rules and regulations for bookings, payments, cancellations, and more.",
+    alternates: {
+        canonical: "/terms-and-conditions"
+    }
+};
+
 const page = () => {
   return (
     <Container>

@@ -115,4 +115,7 @@ body {
   .container{
     max-width: 100%;
   }
+  .gallery{
+    min-height: 400px !important;
+  }
 }
