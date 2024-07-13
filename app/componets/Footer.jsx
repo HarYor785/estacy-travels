@@ -39,12 +39,6 @@ const Footer = () => {
                             <MdKeyboardArrowRight/>
                             Home
                         </Link>
-                        <Link href={'/services'} className='w-full flex items-center gap-2 text-sm 
-                        text-white py-1 border-b-[1px] border-gray-300 hover:text-gray-400 
-                        transition-all duration-300 ease-in-out'>
-                            <MdKeyboardArrowRight/>
-                            Services
-                        </Link>
                         <Link href={'/blog'} className='w-full flex items-center gap-2 text-sm 
                         text-white py-1 border-b-[1px] border-gray-300 hover:text-gray-400 
                         transition-all duration-300 ease-in-out'>
@@ -56,6 +50,12 @@ const Footer = () => {
                         transition-all duration-300 ease-in-out'>
                             <MdKeyboardArrowRight/>
                             Packages
+                        </Link>
+                        <Link href={'/visa-terms-and-conditions'} className='w-full flex items-center gap-2 text-sm 
+                        text-white py-1 border-b-[1px] border-gray-300 hover:text-gray-400 
+                        transition-all duration-300 ease-in-out'>
+                            <MdKeyboardArrowRight/>
+                            Our Visa Terms and Conditions
                         </Link>
                     </div>
                 </div>
