@@ -1,10 +1,6 @@
 'use client'
 
-import { IoMdCall } from "react-icons/io";
-import { MdMail } from "react-icons/md";
-import { FaFacebookSquare, FaLinkedin  } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagramSquare } from "react-icons/fa";
+
 import Link from 'next/link';
 import logo from '@images/logo.png'
 import Image from 'next/image';
@@ -13,6 +9,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
+import AppBar from './AppBar';
 
 const NavLink = ({href, text,children, className, icon: Icon, setOpen}) => {
     const pathname = usePathname()
@@ -68,42 +65,13 @@ const subNavlinks = [
 ]
 
 
-const Topbar = () => {
+export default function Topbar(){
+    
     const [open, setOpen] = useState(false)
   return (
     <header className='w-full flex md:flex-col'>
         {/* TOPBAR */}
-        <div className='w-full md:flex hidden items-center justify-between 
-        px-4 py-2 bg-secondary'>
-            {/* CONTACT INFO */}
-            <div className='flex items-center gap-5'>
-                <a href="tel:+1234567890" 
-                className='flex items-center gap-2 text-white text-sm'>
-                    <IoMdCall size={15} color='#fff'/>
-                    +2348027813575
-                </a>
-                <a href="mailto:info@estacytravels.com"
-                className='flex items-center gap-2 text-white text-sm'>
-                    <MdMail size={15} color='#fff'/>
-                    info@estacytravels.com
-                </a>
-            </div>
-            {/* SOCIAL MEDIA ICONS */}
-            <div className='flex items-center gap-2'>
-                <a href="#" className='text-sm text-white'>
-                    <FaFacebookSquare size={20}/>
-                </a>
-                <a href="#" className='text-sm text-white'>
-                    <FaXTwitter size={20}/>
-                </a>
-                <a href="#" className='text-sm text-white'>
-                    <FaInstagramSquare size={20}/>
-                </a>
-                <a href="#" className='text-sm text-white'>
-                    <FaLinkedin size={20}/>
-                </a>
-            </div>
-        </div>
+        <AppBar/>
         {/* NAVBAR */}
         <nav className='navbar w-full flex md:items-center 
         md:justify-between md:py-2 md:px-20 bg-white shadow-md z-[999]'>
@@ -173,5 +141,3 @@ const Topbar = () => {
     </header>
   )
 }
-
-export default Topbar

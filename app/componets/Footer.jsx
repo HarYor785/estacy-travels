@@ -1,6 +1,5 @@
 
 import Image from 'next/image'
-import React from 'react'
 import logo from '@images/logo.png'
 import Link from 'next/link'
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -10,8 +9,12 @@ import { IoLocation } from "react-icons/io5";
 import { FaFacebookSquare, FaLinkedin  } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa"
+import { client } from 'app/utils/configSanity'
 
-const Footer = () => {
+export const revalidate = 0
+export default async function Footer(){
+    const res = await client.fetch(`*[_type == 'contact']`)
+
   return (
     <footer className='w-full bg-secondary flex flex-col'>
         <div className='w-full md:p-10 p-4 mx-auto'>
@@ -101,19 +104,19 @@ const Footer = () => {
                         text-white py-1 border-b-[1px] border-gray-300 hover:text-gray-400 
                         transition-all duration-300 ease-in-out'>
                             <BiSolidPhoneCall/>
-                            +2348027813575
+                            {res[0]?.phone}
                         </a>
                         <a href={'mailto:info@estacytravels.com'} className='w-full flex items-center gap-2 text-sm 
                         text-white py-1 border-b-[1px] border-gray-300 hover:text-gray-400 
                         transition-all duration-300 ease-in-out'>
                             <IoIosMail/>
-                            info@estacytravels.com
+                            {res[0]?.email}
                         </a>
                         <p  className='w-full flex items-center gap-2 text-sm 
                         text-white py-1 border-b-[1px] border-gray-300 hover:text-gray-400 
                         transition-all duration-300 ease-in-out'>
                             <IoLocation/>
-                            29 Alfred Rewane Street, Ikoyi, Lagos, Nigeria.
+                            {res[0]?.address}
                         </p>
                     </div>
                 </div>
@@ -131,16 +134,16 @@ const Footer = () => {
             </a>
             {/* SOCIAL MEDIA ICONS */}
             <div className='flex items-center gap-2'>
-                <a href="#" className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.facebook} className='md:text-sm text-xs text-white'>
                     <FaFacebookSquare size={20}/>
                 </a>
-                <a href="#" className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.x} className='md:text-sm text-xs text-white'>
                     <FaXTwitter size={20}/>
                 </a>
-                <a href="#" className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.instgram} className='md:text-sm text-xs text-white'>
                     <FaInstagramSquare size={20}/>
                 </a>
-                <a href="#" className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.linkedin} className='md:text-sm text-xs text-white'>
                     <FaLinkedin size={20}/>
                 </a>
             </div>
@@ -148,5 +151,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer
