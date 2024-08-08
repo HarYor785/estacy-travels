@@ -125,25 +125,25 @@ export default async function Footer(){
         {/* FOOTER ADDONS */}
         <div className=' flex md:flex-row flex-col items-center 
         md:justify-between justify-center p-3 bg-main gap-2'>
-            <span className='md:text-sm text-xs text-gray-200'>
+            <span className='text-xs text-gray-200'>
                 {new Date().getFullYear()} © Copyrights Estacy Travels All right reserved.
             </span>
             <a href="https://wa.me/message/ZYOFIWOSI7BWB1" 
-            className='md:text-sm text-xs text-gray-200'>
+            className='text-xs text-gray-200'>
                 Developed by HayPro Solutions
             </a>
             {/* SOCIAL MEDIA ICONS */}
             <div className='flex items-center gap-2'>
-                <a href={res[0]?.facebook} className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.facebook} className='text-xs text-white'>
                     <FaFacebookSquare size={20}/>
                 </a>
-                <a href={res[0]?.x} className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.x} className='text-xs text-white'>
                     <FaXTwitter size={20}/>
                 </a>
-                <a href={res[0]?.instgram} className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.instgram} className='text-xs text-white'>
                     <FaInstagramSquare size={20}/>
                 </a>
-                <a href={res[0]?.linkedin} className='md:text-sm text-xs text-white'>
+                <a href={res[0]?.linkedin} className='text-xs text-white'>
                     <FaLinkedin size={20}/>
                 </a>
             </div>

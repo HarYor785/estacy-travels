@@ -38,7 +38,7 @@ const BookingForm = ({tour,label}) => {
         }
     
         try{
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_MAIL_URL}`, newData)
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_FORMSPREE_BOOKING_MAIL_URL}`, newData)
             if(res?.data?.ok){
                 toast.success('Request sent successfully!');
                 reset()

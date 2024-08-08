@@ -4,12 +4,9 @@ import { MdMail } from "react-icons/md";
 import { FaFacebookSquare, FaLinkedin  } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
-import { client } from 'app/utils/configSanity';
 
-export const revalidate = 0
-export default async function AppBar(){
-    const res = await client.fetch(`*[_type == 'contact']`)
-    
+
+const AppBar = ({res})=>{
   return (
     <div className='w-full md:flex hidden items-center justify-between 
         px-4 py-2 bg-secondary'>
@@ -44,3 +41,5 @@ export default async function AppBar(){
         </div>
   )
 }
+
+export default AppBar

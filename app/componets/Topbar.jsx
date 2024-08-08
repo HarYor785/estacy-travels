@@ -65,13 +65,13 @@ const subNavlinks = [
 ]
 
 
-export default function Topbar(){
+export default function Topbar({res}){
     
     const [open, setOpen] = useState(false)
   return (
     <header className='w-full flex md:flex-col'>
         {/* TOPBAR */}
-        <AppBar/>
+        <AppBar res={res}/>
         {/* NAVBAR */}
         <nav className='navbar w-full flex md:items-center 
         md:justify-between md:py-2 md:px-20 bg-white shadow-md z-[999]'>
@@ -130,13 +130,14 @@ export default function Topbar(){
                     <IoMenu size={22} color="#000"/>
                 </button>
             </div>
-            <button className="chat-btn md:flex hidden py-3 px-5 text-sm text-white 
+            <Link href={'https://wa.me/message/AWRDD4XEIXZGF1'} target='_blank'
+            className="chat-btn md:flex hidden py-3 px-5 text-sm text-white 
             bg-secondary items-center gap-3 rounded-md hover:bg-transparent 
             hover:border-2 border-secondary hover:text-secondary transition-all 
             duration-300 ease-in-out">
                 <FaWhatsapp size={20}/>
                 Chat
-            </button>
+            </Link>
         </nav>
     </header>
   )

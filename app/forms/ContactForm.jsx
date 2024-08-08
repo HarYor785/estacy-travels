@@ -40,7 +40,7 @@ const ContactForm = () => {
         }
     
         try{
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_MAIL_URL}`, newData)
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_MAIL_URL}`, newData)
             if(res?.data?.ok){
                 toast.success('Message sent successfully!');
                 reset()

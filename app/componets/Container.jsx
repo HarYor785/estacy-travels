@@ -1,11 +1,14 @@
 import React from 'react'
 import Topbar from './Topbar'
 import Footer from './Footer'
+import { client } from 'app/utils/configSanity'
 
-const Container = ({children}) => {
+export const revalidate = 0
+export default async function Container({children}){
+  const res = await client.fetch(`*[_type == 'contact']`)
   return (
     <div className='w-full flex flex-col'>
-        <Topbar/>
+        <Topbar res={res}/>
         <main className='w-full'>
             {children}
         </main>
@@ -14,4 +17,3 @@ const Container = ({children}) => {
   )
 }
 
-export default Container

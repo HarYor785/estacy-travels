@@ -32,6 +32,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CZVZ21KHS"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2CZVZ21KHS');
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         {children}
       </body>

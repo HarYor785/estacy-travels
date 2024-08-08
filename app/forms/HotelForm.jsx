@@ -40,7 +40,7 @@ const HotelForm = () => {
         }
     
         try{
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_MAIL_URL}`, newData)
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_FORMSPREE_HOTEL_MAIL_URL}`, newData)
             if(res?.data?.ok){
                 toast.success('Request sent successfully!');
                 reset()
