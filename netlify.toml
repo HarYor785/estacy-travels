@@ -1,16 +1,8 @@
 [build]
-  # Specify the build command
   command = "npm run build"
-
-  # Directory where the build output is located
-  publish = "out"
-
-[build.environment]
-  # Environment variables
-  NODE_VERSION = "16"
+  publish = ".next"
 
 [[redirects]]
-  from = "/api/*"
-  to = "/api/index.js"
+  from = "/*"
+  to = "/index.html"
   status = 200
-
