@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import 'react-toastify/dist/ReactToastify.css';
+import Script from 'next/script'
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,17 +35,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CZVZ21KHS"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-2CZVZ21KHS"></Script>
+        <Script id="google-analytics">
+          {
+            `
+            window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-2CZVZ21KHS');
-            `,
-          }}
-        />
+            `
+          }
+        </Script>
       </head>
       <body className={inter.className}>
         {children}
