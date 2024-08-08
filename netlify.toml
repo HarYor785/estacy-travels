@@ -1,11 +1,16 @@
-# netlify.toml
-
 [build]
-  command = "next build && next export"
+  # Specify the build command
+  command = "npm run build"
+
+  # Directory where the build output is located
   publish = "out"
 
-# Add any redirects if needed
+[build.environment]
+  # Environment variables
+  NODE_VERSION = "16"
+
 [[redirects]]
-  from = "/old-url"
-  to = "/new-url"
-  status = 301
+  from = "/api/*"
+  to = "/api/index.js"
+  status = 200
+
