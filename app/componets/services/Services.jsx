@@ -11,12 +11,12 @@ const Services = () => {
   return (
         <div className='w-full grid grid-cols-1 md:gap-5 gap-1 md:grid-cols-2 lg:grid-cols-3
             xl:grid-cols-3 md:px-28'>
-            <ServiceCard name={'Visa Services'} link={'visa-services'} image={`/images/estacy-2.png`}/>
-            <ServiceCard name={'Birth Services'} link={'birth-services'} image={`/images/estacy-3.png`}/>
-            <ServiceCard name={'Vacation Packages'} link={'vacation-packages'} image={`/images/estacy-4.png`}/>
-            <ServiceCard name={'School Services'} link={'school-services'} image={`/estacy-5.png`}/>
-            <ServiceCard name={'Flight & Ticketing'} link={'flight-&-ticketing'} image={`/images/estacy-6.png`}/>
-            <ServiceCard name={'Hotel Reservation'} link={'hotel-reservation'} image={`/images/estacy-7.png`}/>
+            <ServiceCard name={'Visa Services'} link={'visa-services'} image={serviceImg1}/>
+            <ServiceCard name={'Birth Services'} link={'birth-services'} image={serviceImg2}/>
+            <ServiceCard name={'Vacation Packages'} link={'vacation-packages'} image={serviceImg3}/>
+            <ServiceCard name={'School Services'} link={'school-services'} image={serviceImg4}/>
+            <ServiceCard name={'Flight & Ticketing'} link={'flight-&-ticketing'} image={serviceImg5}/>
+            <ServiceCard name={'Hotel Reservation'} link={'hotel-reservation'} image={serviceImg6}/>
         </div>
   )
 }
