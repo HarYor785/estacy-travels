@@ -79,7 +79,7 @@ export default function Topbar({res}){
             justify-between md:gap-10 relative'>
                 {/* LOGO */}
                 <a href="/">
-                    <Image src={logo} alt='Estacy-Travels Logo'
+                    <Image src={'https://estacytravels.netlify.app/images/logo.png'} alt='Estacy-Travels Logo'
                     width={50} height={100} className=' w-[50px] h-[50px] rounded-full'/>
                 </a>
                 {/* OVERLAY */}
