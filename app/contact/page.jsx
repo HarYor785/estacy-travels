@@ -11,6 +11,7 @@ import Testimonials from 'app/swipers/Testimonials';
 import Offers from 'app/componets/offers/Offers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { client } from 'app/utils/configSanity';
 
 export const metadata = {
     title: "Contact Us - Estacy Travels",
@@ -20,8 +21,9 @@ export const metadata = {
     }
 };
 
-
-const page = () => {
+export const revalidate = 0
+export default async function page(){
+    const res = await client.fetch(`*[_type == 'contact']`)
   return (
     <Container>
         <ToastContainer/>
@@ -50,21 +52,21 @@ const page = () => {
                         <BsFillTelephoneFill size={20} className="text-gray-400"/>
                         <a href="tel:+2349818747467"
                         className='text-sm text-gray-700'>
-                            +2348027813575
+                            {res[0]?.phone}
                         </a>
                     </div>
                     <div className='flex items-center gap-4'>
                         <MdEmail size={20} className="text-gray-400"/>
                         <a href="mailto:info@estacytravels.com"
                         className='text-sm text-gray-700'>
-                            info@estacytravels.com
+                            {res[0]?.email}
                         </a>
                     </div>
                     <div className='flex items-center gap-4'>
                         <FaLocationDot size={20} className="text-gray-400"/>
                         <p
                         className='text-sm text-gray-700'>
-                            29 Alfred Rewane Street, Ikoyi, Lagos, Nigeria.
+                            {res[0]?.address}
                         </p>
                     </div>
                     <div className='flex items-start gap-4'>
@@ -115,5 +117,3 @@ const page = () => {
     </Container>
   )
 }
-
-export default page

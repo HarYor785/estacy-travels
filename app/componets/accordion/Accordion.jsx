@@ -24,7 +24,7 @@ const Accordion = ({ question, answer, isOpen, onClick }) => {
       </h2>
       <div
         className={`overflow-hidden transition-max-height duration-500 ease-in-out ${
-          isOpen ? "max-h-screen p-2" : "max-h-0 p-0"
+          isOpen ? "max-h-fit p-2" : "max-h-0 p-0"
         }`}
       >
         <HtmlContent html={answer}/>

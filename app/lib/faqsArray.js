@@ -11,6 +11,31 @@ import faq14 from '@images/faq-img14.png'
 import faq8 from '@images/faq-img8.png'
 import faq12 from '@images/faq-img12.png'
 
+import { client } from 'app/utils/configSanity'
+
+let feeData = {};
+async function getFee(){
+  try{
+    const res = await client.fetch(`*[_type == 'processingFee']`)
+    if (res && res?.length > 0) {
+      feeData = {
+        adult: res[0]?.adult,
+        child: res[0]?.child
+      };
+
+      return feeData;
+    } else {
+      return { adult: null, child: null }; 
+    }
+    return feeData
+  }catch(error){
+    console.log(error)
+    return { adult: '', child: '' };
+  }
+}
+
+await getFee()
+
 export const faqsArray = [
     // UK
     {
@@ -25,18 +50,20 @@ export const faqsArray = [
           "question": "How much does a UK visa application cost?",
           "answer": `The costs for UK visa applications are as follows:
             <br/>
-          - 6 months visa (Ikeja/Abuja): $162<br/>
+          Super Priority Cost: $1,350<br/>
           - 2 years visa (Ikeja/Abuja): $545<br/>
           - 5 years visa (Ikeja/Abuja): $1,034<br/>
           - 10 years visa (Ikeja/Abuja): $1,288<br/>
-          - 6 months visa (VI + Location Fee): $162 + $110<br/>
-          - 2 years visa (VI + Location Fee): $545 + $110<br/>
-          - 5 years visa (VI + Location Fee): $1,034 + $110<br/>
-          - 10 years visa (VI + Location Fee): $1,288 + $110<br/>
-  <br/><br/>
+          - 6 months visa: <br/>
+          * Location Option 1: $165 + $110 for (Victoria Island Submission Center)<br/>
+          * Location Option 2: $165 (Ikeja or Abuja Submision Center)<br/>
+          - 2 years visa (VI + Location Fee): $590 + $110<br/>
+          - 5 years visa (VI + Location Fee): $1,040 + $110<br/>
+          - 10 years visa (VI + Location Fee): $1,298 + $110<br/>
+          <br/><br/>
           *Service location charges differ for Victoria Island and (Ikeja, Abuja).
           <br/><br/>
-          *Processing fee: ₦250,000 (Adult), ₦125,000 (Child).`
+          *Processing fee: ₦${feeData?.adult}(Adult), ₦${feeData?.child} (Child).`
         },
         {
           "question": "What does Visa Processing fee mean?",
@@ -44,7 +71,7 @@ export const faqsArray = [
         },
         {
           "question": "How long does the processing take?",
-          "answer": "It could take up to 30 working days or more after submission at the embassy."
+          "answer": "It could take upto 20 to 30 working days or more after submission at the embassy."
         },
         {
           "question": "What if I am not working, can I still apply?",
@@ -127,7 +154,7 @@ export const faqsArray = [
           },
           {
             "question": "How much does the USA application cost?",
-            "answer": "The visa fee is ₦277,500. The processing fee is ₦250,000 for adults and ₦125,000 for children."
+            "answer": `The visa fee is ₦305,250. The processing fee is ₦${feeData?.adult} for adults and ₦${feeData?.child} for children.`
           },
           {
             "question": "What does the Visa Processing fee mean?",
@@ -222,7 +249,7 @@ export const faqsArray = [
           },
           {
             "question": "How much does the application cost?",
-            "answer": "The processing fee is ₦250,000 per adult and ₦125,000 per child. The Canada visa fee and biometric cost $185 CAD (subject to current exchange rates). For children below 13 years, the Canada visa fee only is $100 CAD (subject to exchange rate upon submission)."
+            "answer": `The processing fee is ₦${feeData?.adult} per adult and ₦${feeData?.child} per child. The Canada visa fee and biometric cost $185 CAD (subject to current exchange rates). For children below 13 years, the Canada visa fee only is $100 CAD (subject to exchange rate upon submission).`
           },
           {
             "question": "What does the Visa Processing fee mean?",
@@ -309,7 +336,7 @@ export const faqsArray = [
           },
           {
             "question": "How much does the application cost?",
-            "answer": "A) Processing fee – ₦250,000 per adult, and ₦125,000 per child.\nB) Australia Visa fee – $147 USD."
+            "answer": `A) Processing fee – ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.\nB) Australia Visa fee – $147 USD.`
           },
           {
             "question": "What does Visa Processing fee mean?",
@@ -392,7 +419,7 @@ export const faqsArray = [
           },
           {
             "question": "How much does the application cost?",
-            "answer": "A) Processing fee – ₦250,000 per adult, and ₦125,000 per child.\nB) Visa fee is about ₦27,000 for single entry (Payable at the embassy or VFS during submission)."
+            "answer": `A) Processing fee – ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.\nB) Visa fee is about ₦27,000 for single entry (Payable at the embassy or VFS during submission).`
           },
           {
             "question": "What does Visa Processing fee mean?",
@@ -471,7 +498,7 @@ export const faqsArray = [
           },
           {
             question: "How much does the Malaysia visa application cost?",
-            answer: "A) Processing fee – ₦250,000 per adult, and ₦125,000 per child.\n\nB) Visa fee (Non-Refundable) is about N12,000 at the VFS Malaysia visa application center in Abuja."
+            answer: `A) Processing fee – ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.\n\nB) Visa fee (Non-Refundable) is about N12,000 at the VFS Malaysia visa application center in Abuja.`
           },
           {
             question: "What does Visa Processing fee mean?",
@@ -558,7 +585,7 @@ export const faqsArray = [
           },
           {
             question: "How much does the Brazilian application cost?",
-            answer: "Estacy Travels Processing Fee: Per Adult ₦250,000, Per Child ₦125,000. Embassy Visa fee and Insurance ₦169,100."
+            answer: `Estacy Travels Processing Fee: Per Adult ₦${feeData?.adult}, Per Child ₦${feeData?.child}. Embassy Visa fee and Insurance ₦169,100.`
           },
           {
             question: "What does Visa Processing fee mean?",
@@ -633,7 +660,7 @@ export const faqsArray = [
         },
         {
         question: "How much does visa application cost?",
-        answer: `It costs ₦250,000 per adult and ₦125,000 per child. <br/><br/>
+        answer: `It costs ₦${feeData?.adult} per adult and ₦${feeData?.child} per child. <br/><br/>
         Embassy Service charge: ₦125,000 (payable before picking biometrics date). <br/><br/>
         Visa Fee (payable to the Embassy): <br/><br/>
         Single Entry: £60, <br/><br/>
@@ -681,7 +708,7 @@ export const faqsArray = [
         },
         {
         question: "How much does the application cost?",
-        answer: `A) Processing fee – ₦250,000 per adult, and ₦125,000 per child. Payable to Estacy Travel <br/><br/>
+        answer: `A) Processing fee – ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child. Payable to Estacy Travel <br/><br/>
             B) Visa fee (Non-Refundable) 
             <br/><br/>
             LAGOS SUBMISSION<br/>
@@ -774,7 +801,7 @@ export const faqsArray = [
             },
             {
                 "question": "How much does the South Africa application cost?",
-                "answer": "A) Processing fee – ₦250,000 per adult, and ₦125,000 per child.\nB) VFS SERVICE CHARGE – N37,700 (Payable at VFS)\nC) ONLINE VISA FEE $97 (Either Paid by Client or to us to help pay during submission of the application)."
+                "answer": `A) Processing fee – ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.\nB) VFS SERVICE CHARGE – N37,700 (Payable at VFS)\nC) ONLINE VISA FEE $97 (Either Paid by Client or to us to help pay during submission of the application).`
             },
             {
                 "question": "What does Visa Processing fee cover?",
@@ -853,7 +880,7 @@ export const faqsArray = [
             },
             {
                 "question": "How much does the Mexico visa application cost?",
-                "answer": "It costs ₦250,000 per Adult for the visa processing, ₦125,000 per child for the visa processing. Visa fee: $53 it is paid to the embassy."
+                "answer": `It costs ₦${feeData?.adult} per Adult for the visa processing, ₦${feeData?.child} per child for the visa processing. Visa fee: $53 it is paid to the embassy.`
             },
             {
                 "question": "What does the visa processing cover?",
@@ -929,60 +956,60 @@ export const faqsArray = [
                     if business owner or Employment if employed, and passport photograph.</b>
                     <br/><br/>
                     <b>SPAIN</b><br/><br/>
-                    Ans: A) Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: A) Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦75,400/person (for Spain visa)
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website
                     B)Visa fee is ₦45,000 (Payable at BLS during submission)<br/><br/>
                     <b>DENMARK</b><br/><br/>
-                    Ans: A) Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: A) Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: N45,800
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website
                     B)Visa fee is ₦45,000 (Payable at TLS during submission)<br/><br/>
                     <b>FRANCE/NETHERLAND</b><br/><br/>
-                    Ans: A) Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: A) Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Biometrics and Insurance fee ₦73,400 per person
                     Please note that appointment booking is based on the
                     next available date on the embassy website
                     <br/>
                     B)Visa fee is ₦78,000 (Payable at BLS during submission)<br/><br/>
                     <b>AUSTRIA</b><br/><br/>
-                    Ans: A) Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: A) Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦40,800 Per Person
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website<br/><br/>
                     <b>BELGIUM</b><br/><br/>
-                    Ans: A) Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: A) Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee:  ₦73,000 Per Person
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website<br/>
                     B)Visa fee is ₦72,000 (Payable at TLS during submission)<br/><br/>
                     <b>SWEDEN</b><br/><br/>
-                    Ans: Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦45,000 
                     Please note that biometric appointment walk-in<br/>
                     B)Visa fee is ₦45,000 (Payable at BLS during submission)<br/><br/>
                     <b>ITALY</b><br/><br/>
-                    Ans: Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦45,800 
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website<br/>
                     B)Visa fee is ₦72,000 (Payable at TLS during submission)<br/><br/>
                     <b>GERMANY</b><br/><br/>
-                    Ans: Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦40,000 Per Person
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website<br/>
                     B)Visa fee is ₦72,000 (Payable to the German Embassy during submission)<br/><br/>
                     <b>POLAND</b><br/><br/>
-                    Ans: Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦45,800 
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website<br/>
                     B)Visa fee is ₦72,000 (Payable to the Embassy during submission)<br/><br/>
                     <b>GREECE</b><br/><br/>
-                    Ans: Processing fee: ₦250,000 per adult, and ₦125,000 per child.
+                    Ans: Processing fee: ₦${feeData?.adult} per adult, and ₦${feeData?.child} per child.
                     Insurance and biometric fee: ₦52,800 
                     Please note that biometric appointment booking is based on the
                     next available date on the embassy website<br/>
