@@ -74,7 +74,7 @@ export default async function page(){
                         <div className='flex flex-col items-start gap-1'>
                             <p
                             className='text-sm text-gray-700'>
-                                Mon-Fri : 9am – 6pm
+                                Mon-Fri : 9am – 5pm
                             </p>
                             <p
                             className='text-sm text-gray-700'>
